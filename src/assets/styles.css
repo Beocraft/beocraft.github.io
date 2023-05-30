@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'Inconsolata', monospace;
+    src: url("https://fonts.googleapis.com/css2?family=Inconsolata&display=swap");
+}
+
+* {
+    font-family: 'Inconsolata', monospace;
+    text-align: center;
+}
+
+body {
+    background-color: #e2e2e2;
+}
+
+table {
+    border: 2px solid;
+}
+
+th {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+td {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+img {
+    width: 32px;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}

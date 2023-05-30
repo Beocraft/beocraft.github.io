@@ -1,9 +1,15 @@
-# Beocraft Minecraft Server
+# Beocraft Website
 
-Beocraft is a Minecraft server originally created for fun in 2018
-During its course it has obtained many long term players and discord users
+Show and browse players. Read server status. Get latest news. Invite new members.
 
-Currently the server is on hold regarding vanilla survival series but we are actively playing modded minecraft on our server.
-We are mixing between All The Mods series or our custom packs developed by our players
+## Paths available
+- `/` - Home page
+- `/about` - About the server page
+- `/details/:id` - User details page
+- `/online` - Online players
+- `/join` - Discord invite
 
-If you want, you can join our Discord: <https://discord.gg/mWBfUjqMTU>
+## Libraries used
+
+- `axios` - Faster and better HTTP Client
+- `typescript` - JavaScript with types
