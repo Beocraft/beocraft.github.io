@@ -6,7 +6,7 @@
         <th>icon</th>
         <td>
           <img :src="player.avatar">
-          <img :src="`https://crafatar.com/avatars/${player.uuid}`">
+          <img :src="`https://visage.surgeplay.com/face/32/${player.uuid}`">
         </td>
       </tr>
       <tr>
@@ -36,7 +36,7 @@
       <tr>
         <th>skin</th>
         <td>
-          <img :src="`https://crafatar.com/renders/body/${player.uuid}`" class="skin">
+          <img :src="`https://visage.surgeplay.com/bust/64/${player.uuid}`" class="skin">
         </td>
       </tr>
       <tr>

@@ -14,7 +14,7 @@
             <tr v-for="d in data">
                 <td class="icon">
                     <img :src="d.avatar">
-                    <img :src="`https://crafatar.com/avatars/${d.uuid}`">
+                    <img :src="`https://visage.surgeplay.com/face/32/${d.uuid}`">
                 </td>
                 <td class="minecraft">{{ d.name }}</td>
                 <td class="discord">{{ d.nickname }}</td>

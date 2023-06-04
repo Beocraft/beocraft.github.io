@@ -10,7 +10,7 @@
             </tr>
             <tr v-for="player in status.players.sample">
                 <td>
-                    <img :src="`https://crafatar.com/avatars/${player.id}`">
+                    <img :src="`https://visage.surgeplay.com/face/32/${player.id}`">
                 </td>
                 <td>{{ player.name }}</td>
                 <td>{{ player.id }}</td>
