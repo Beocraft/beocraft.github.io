@@ -12,7 +12,9 @@ const routes: Array<RouteRecordRaw> = [
         name: 'home',
         component: HomeView,
         meta: {
-            title: 'Home'
+            title: 'Home',
+            "og:title": "Home",
+            "og:description": "Homepage of the Beocraft SMP minecraft server."
         }
     },
     {
@@ -20,7 +22,9 @@ const routes: Array<RouteRecordRaw> = [
         name: 'about',
         component: AboutView,
         meta: {
-            title: 'About'
+            title: 'About',
+            "og:title": "About",
+            "og:description": "Info on the Beocraft SMP minecraft server."
         }
     },
     {
@@ -28,7 +32,9 @@ const routes: Array<RouteRecordRaw> = [
         name: 'online',
         component: OnlineView,
         meta: {
-            title: 'Online'
+            title: 'Online',
+            "og:title": "Beocraft status",
+            "og:description": "How many people are online at the moment?"
         }
     },
     {
@@ -36,7 +42,9 @@ const routes: Array<RouteRecordRaw> = [
         name: 'join',
         component: JoinView,
         meta: {
-            title: 'Join'
+            title: 'Join',
+            "og:title": "Join Beocraft",
+            "og:description": "How and where to join the Beocraft SMP minecraft server."
         }
     },
     {
@@ -64,7 +72,9 @@ const routes: Array<RouteRecordRaw> = [
         name: 'notfound',
         component: NotFoundView,
         meta: {
-            title: 'Not Found'
+            title: 'Not Found',
+            "og:title": "Not Found",
+            "og:description": "This page does not exist."
         }
     }
 ]
