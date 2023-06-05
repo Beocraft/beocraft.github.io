@@ -1,7 +1,7 @@
 <template>
-  <div class="details">
+  <div class="details center">
     <h3>Player details</h3>
-    <table class="center" v-if="player">
+    <table class="card p-1 center" v-if="player">
       <tr>
         <th>icon</th>
         <td>
@@ -48,7 +48,7 @@
         <td>{{ player.cachedAt }}</td>
       </tr>
     </table>
-    <p v-else>No data found for player {{uuid}}</p>
+    <div v-else class="pending dummy width-restricted center m-t-1"></div>
   </div>
 </template>
 

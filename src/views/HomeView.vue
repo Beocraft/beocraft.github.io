@@ -1,32 +1,43 @@
 <template>
-    <div class="home">
-        <h3 v-if="stats">Displaying total of {{ stats.count }} players from {{ stats.guilds.count }} different
-            guilds</h3>
-        <table id="player-table" class="center" v-if="data">
-            <tr>
-                <th>icon</th>
-                <th>minecraft</th>
-                <th>discord</th>
-                <th>created_at</th>
-                <th>cached_at</th>
-                <th>actions</th>
-            </tr>
-            <tr v-for="d in data">
-                <td class="icon">
-                    <img :src="d.avatar">
-                    <img :src="`https://visage.surgeplay.com/face/32/${d.uuid}`">
-                </td>
-                <td class="minecraft">{{ d.name }}</td>
-                <td class="discord">{{ d.nickname }}</td>
-                <td class="created_at">{{ formatDate(d.createdAt) }}</td>
-                <td class="cached_at">{{ formatDate(d.cachedAt) }}</td>
-                <td>
-                    <button type="button" class="details" @click="(e) => details(d.uuid)">details</button>
-                    <button type="button" class="update" @click="(e) => update(d.uuid)">update</button>
-                </td>
-            </tr>
-        </table>
-    </div>
+  <div class="home">
+    <h3 v-if="stats">Displaying total of {{ stats.count }} players from {{ stats.guilds.count }} different
+      guilds</h3>
+<!--    <table id="player-table" class="center" v-if="data">-->
+<!--      <tr>-->
+<!--        <th>icon</th>-->
+<!--        <th>minecraft</th>-->
+<!--        <th>discord</th>-->
+<!--        <th class="mobile-hidden">created_at</th>-->
+<!--        <th class="mobile-hidden">cached_at</th>-->
+<!--        <th class="mobile-small-hidden">actions</th>-->
+<!--      </tr>-->
+<!--      <tr v-for="d in data" class="card">-->
+<!--        <td class="icon">-->
+<!--          <img :src="d.avatar">-->
+<!--          <img :src="`https://visage.surgeplay.com/face/32/${d.uuid}`">-->
+<!--        </td>-->
+<!--        <td class="minecraft">{{ d.name }}</td>-->
+<!--        <td class="discord">{{ d.nickname }}</td>-->
+<!--        <td class="created_at mobile-hidden center">{{ formatDate(d.createdAt) }}</td>-->
+<!--        <td class="cached_at mobile-hidden center">{{ formatDate(d.cachedAt) }}</td>-->
+<!--        <td class="mobile-small-hidden">-->
+<!--          <button type="button" class="details" @click="(e) => details(d.uuid)">details</button>-->
+<!--          <button type="button" class="update" @click="(e) => update(d.uuid)">update</button>-->
+<!--        </td>-->
+<!--      </tr>-->
+<!--    </table>-->
+    <main class="flex flex-column width-restricted center" v-if="data">
+      <article class="flex flex-row flex-distribute card card-interactable table-element" v-for="d in data" @click="(e) => details(d.uuid)">
+        <div>
+          <img :src="d.avatar">
+          <img :src="`https://visage.surgeplay.com/face/32/${d.uuid}`">
+        </div>
+        <span>{{d.name}}</span>
+        <span class="mobile-hidden">{{d.nickname}}</span>
+      </article>
+    </main>
+    <div v-else class="pending dummy width-restricted center m-t-1"></div>
+  </div>
 </template>
 
 <script lang="ts" setup>
@@ -41,30 +52,30 @@ const stats = ref<StatsModel>();
 const router = useRouter();
 
 function loadData() {
-    MainService.retrieveAll()
-        .then(rsp => data.value = rsp.data)
-    MainService.retrieveStats()
-        .then(rsp => stats.value = rsp.data)
+  MainService.retrieveAll()
+      .then(rsp => data.value = rsp.data)
+  MainService.retrieveStats()
+      .then(rsp => stats.value = rsp.data)
 }
 
 function formatDate(timestamp: any) {
-    const date = new Date(timestamp)
-    return `${addLeadingZeros(date.getHours())}:${addLeadingZeros(date.getMinutes())} ${addLeadingZeros(date.getDate())}-${addLeadingZeros(date.getMonth())}-${date.getFullYear()}`
+  const date = new Date(timestamp)
+  return `${addLeadingZeros(date.getHours())}:${addLeadingZeros(date.getMinutes())} ${addLeadingZeros(date.getDate())}-${addLeadingZeros(date.getMonth())}-${date.getFullYear()}`
 }
 
 function addLeadingZeros(num: number) {
-    return String(num).padStart(2, '0');
+  return String(num).padStart(2, '0');
 }
 
 function details(uuid: string) {
-    router.push({
-        path: '/details/' + uuid
-    })
+  router.push({
+    path: '/details/' + uuid
+  })
 }
 
 function update(uuid: any) {
-    MainService.updatePlayer(uuid)
-        .then(rsp => loadData())
+  MainService.updatePlayer(uuid)
+      .then(rsp => loadData())
 }
 
 // retrieve data on mount
