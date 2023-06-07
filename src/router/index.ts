@@ -82,24 +82,19 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
     if (to.meta.title && to.meta.description) {
-        const title = `${to.meta.title} :: Beocraft`;
-
         // Set tab title
-        document.title = title;
+        document.title = `${to.meta.title} :: Beocraft`;
 
         // Set meta
-        const head = document.getElementsByTagName('head')[0];
-        head.appendChild(createMetaTag("og:title", title))
-        head.appendChild(createMetaTag("og:description", to.meta.description as string))
+        updateMetaTag("meta-title", to.meta.title as string)
+        updateMetaTag("meta-desc", to.meta.description as string)
     }
     next();
 })
 
-function createMetaTag(equiv: string, content: string): HTMLMetaElement {
-    const meta = document.createElement('meta');
-    meta.httpEquiv = equiv;
+function updateMetaTag(id: string, content: string) {
+    const meta: HTMLMetaElement = document.getElementById(id) as HTMLMetaElement;
     meta.content = content;
-    return meta;
 }
 
 export default router
