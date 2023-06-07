@@ -10,7 +10,7 @@ const client = axios.create({
     }
 })
 
-export class MainService {
+export class CacheService {
     static async retrieveAll() {
         return await client.get('/data')
     }
@@ -21,13 +21,5 @@ export class MainService {
 
     static async retrieveStats() {
         return await client.get('/data/stats')
-    }
-
-    static async updatePlayer(uuid: string) {
-        return await client.post('/sync/player/' + uuid)
-    }
-
-    static async updateAll() {
-        return await client.post('/sync/all');
     }
 }

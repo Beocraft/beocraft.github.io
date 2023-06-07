@@ -41,11 +41,11 @@
       </tr>
       <tr>
         <th>created_at</th>
-        <td>{{ player.createdAt }}</td>
+        <DateFormat :date="player.createdAt"/>
       </tr>
       <tr>
         <th>cached_at</th>
-        <td>{{ player.cachedAt }}</td>
+        <DateFormat :date="player.cachedAt"/>
       </tr>
     </table>
     <div v-else class="pending dummy width-restricted center m-t-1"></div>
@@ -53,16 +53,17 @@
 </template>
 
 <script lang="ts" setup>
-import {MainService} from '@/services/cache.service';
+import {CacheService} from '@/services/cache.service';
 import {DataModel} from '@/models/data.model';
 import {ref} from 'vue';
 import {useRoute} from 'vue-router';
+import DateFormat from "@/components/DateFormat.vue";
 
 const route: any = useRoute()
 const uuid = route.params.uuid;
 const player = ref<DataModel>()
 
-MainService.retrieveByUuid(uuid).then(rsp => {
+CacheService.retrieveByUuid(uuid).then(rsp => {
   player.value = rsp.data
 })
 </script>

@@ -13,8 +13,7 @@ const routes: Array<RouteRecordRaw> = [
         component: HomeView,
         meta: {
             title: 'Home',
-            "og:title": "Home",
-            "og:description": "Homepage of the Beocraft SMP minecraft server."
+            description: "Homepage of the Beocraft SMP minecraft server"
         }
     },
     {
@@ -23,8 +22,7 @@ const routes: Array<RouteRecordRaw> = [
         component: AboutView,
         meta: {
             title: 'About',
-            "og:title": "About",
-            "og:description": "Info on the Beocraft SMP minecraft server."
+            description: "Info about the Beocraft SMP minecraft server"
         }
     },
     {
@@ -33,8 +31,7 @@ const routes: Array<RouteRecordRaw> = [
         component: OnlineView,
         meta: {
             title: 'Online',
-            "og:title": "Beocraft status",
-            "og:description": "How many people are online at the moment?"
+            description: "How many people are online at the moment?"
         }
     },
     {
@@ -43,8 +40,7 @@ const routes: Array<RouteRecordRaw> = [
         component: JoinView,
         meta: {
             title: 'Join',
-            "og:title": "Join Beocraft",
-            "og:description": "How and where to join the Beocraft SMP minecraft server."
+            description: "How and where to join the Beocraft SMP"
         }
     },
     {
@@ -52,7 +48,8 @@ const routes: Array<RouteRecordRaw> = [
         name: 'UserData',
         component: DetailsView,
         meta: {
-            title: 'User'
+            title: 'Details',
+            description: "Details about the player"
         }
     },
     {
@@ -73,8 +70,7 @@ const routes: Array<RouteRecordRaw> = [
         component: NotFoundView,
         meta: {
             title: 'Not Found',
-            "og:title": "Not Found",
-            "og:description": "This page does not exist."
+            description: "This page does not exist"
         }
     }
 ]
@@ -85,9 +81,25 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-    if (to.meta.title)
-        document.title = `${to.meta.title} :: Beocraft`;
+    if (to.meta.title && to.meta.description) {
+        const title = `${to.meta.title} :: Beocraft`;
+
+        // Set tab title
+        document.title = title;
+
+        // Set meta
+        const head = document.getElementsByTagName('head')[0];
+        head.appendChild(createMetaTag("og:title", title))
+        head.appendChild(createMetaTag("og:description", to.meta.description as string))
+    }
     next();
 })
+
+function createMetaTag(equiv: string, content: string): HTMLMetaElement {
+    const meta = document.createElement('meta');
+    meta.httpEquiv = equiv;
+    meta.content = content;
+    return meta;
+}
 
 export default router
