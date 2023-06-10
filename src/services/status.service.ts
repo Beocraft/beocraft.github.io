@@ -1,7 +1,6 @@
 import axios from "axios"
 
 const client = axios.create({
-    baseURL: 'https://link.samifying.com/api',
     headers: {
         'Accept': 'application/json'
     },
@@ -10,8 +9,8 @@ const client = axios.create({
     }
 })
 
-export class LinkService {
+export class StatusService {
     static async retrieveStatus() {
-        return client.get('/status/play.beocraft.net')
+        return client.get('https://api.pequla.com/mcstatus')
     }
 }

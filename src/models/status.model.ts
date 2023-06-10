@@ -1,3 +1,5 @@
+import {DataModel} from "@/models/data.model";
+
 export interface StatusModel {
     description: {
         text: string
@@ -5,11 +7,7 @@ export interface StatusModel {
     players: {
         max: number,
         online: number,
-        sample:
-            {
-                name: string,
-                id: string
-            }[] | null
+        sample: DataModel[]
     },
     version: {
         name: string,
