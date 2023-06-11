@@ -4,7 +4,7 @@
         <main class="card width-restricted center">
           <p class="center">Here is a short list of server features:</p>
           <ul class="no-bullet">
-            <li>Java 1.19.4</li>
+            <li>Java 1.20</li>
             <li>No cheating, No griefing, No stealing</li>
             <li>ONLY paid clients (no crack)</li>
             <li>ONLY java edition (no crossplay)</li>
