@@ -13,4 +13,8 @@ export class StatusService {
     static async retrieveStatus() {
         return client.get('https://api.pequla.com/mcstatus')
     }
+
+    static async retrieveModdedStatus() {
+        return client.get('https://api.pequla.com/mcstatusmoded')
+    }
 }

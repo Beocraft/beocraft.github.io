@@ -1,6 +1,6 @@
 <template>
   <div class="online" v-if="status">
-    <h3>Minecraft 1.20.1</h3>
+    <h3>All The Mods 8</h3>
     <h3>Currently {{ status.players.online }} out of {{ status.players.max }} players online</h3>
     <main class="flex flex-column width-restricted center" v-if="status.players.sample">
       <PlayerDisplay :player="player" v-for="player in status.players.sample"/>
@@ -19,7 +19,7 @@ const status = ref<StatusModel>();
 onBeforeMount(() => loadStatus())
 
 function loadStatus() {
-  StatusService.retrieveStatus()
+  StatusService.retrieveModdedStatus()
       .then(rsp => status.value = rsp.data)
 }
 

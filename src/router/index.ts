@@ -5,6 +5,7 @@ import NotFoundView from '../views/NotFoundView.vue'
 import DetailsView from '../views/DetailsView.vue'
 import AboutView from "@/views/AboutView.vue";
 import JoinView from "@/views/JoinView.vue";
+import ModdedView from "@/views/ModdedView.vue";
 
 const routes: Array<RouteRecordRaw> = [
     {
@@ -31,6 +32,15 @@ const routes: Array<RouteRecordRaw> = [
         component: OnlineView,
         meta: {
             title: 'Online',
+            description: "How many people are online at the moment?"
+        }
+    },
+    {
+        path: '/modded',
+        name: 'modded',
+        component: ModdedView,
+        meta: {
+            title: 'Modded',
             description: "How many people are online at the moment?"
         }
     },

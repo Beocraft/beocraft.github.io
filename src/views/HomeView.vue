@@ -1,12 +1,12 @@
 <template>
-    <div class="home">
-        <h3 v-if="stats">Displaying total of {{ stats.count }} players from {{ stats.guilds.count }} different
-            guilds</h3>
-        <main class="flex flex-column width-restricted center" v-if="data">
-            <PlayerDisplay :player="d" v-for="d in data"/>
-        </main>
-        <div v-else class="pending dummy width-restricted center m-t-1"></div>
-    </div>
+  <div class="home">
+    <h3 v-if="stats">Displaying total of {{ stats.count }} players from {{ stats.guilds.count }} different
+      guilds</h3>
+    <main class="flex flex-column width-restricted center" v-if="data">
+      <PlayerDisplay :player="d" v-for="d in data"/>
+    </main>
+    <div v-else class="pending dummy width-restricted center m-t-1"></div>
+  </div>
 </template>
 
 <script lang="ts" setup>
@@ -20,10 +20,10 @@ const data = ref<DataModel[]>();
 const stats = ref<StatsModel>();
 
 function loadData() {
-    CacheService.retrieveAll()
-        .then(rsp => data.value = rsp.data)
-    CacheService.retrieveStats()
-        .then(rsp => stats.value = rsp.data)
+  CacheService.retrieveAll()
+      .then(rsp => data.value = rsp.data)
+  CacheService.retrieveStats()
+      .then(rsp => stats.value = rsp.data)
 }
 
 // retrieve data on mount
