@@ -1,7 +1,7 @@
 import axios from "axios"
 
 const client = axios.create({
-    baseURL: 'https://api.pequla.com/guildcache',
+    baseURL: 'https://api.beocraft.net',
     headers: {
         'Accept': 'application/json'
     },
@@ -21,5 +21,9 @@ export class CacheService {
 
     static async retrieveStats() {
         return await client.get('/data/stats')
+    }
+
+    static async retrieveStatus(addr: string) {
+        return client.get('/status/' + addr)
     }
 }
