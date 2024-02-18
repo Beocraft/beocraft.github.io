@@ -123,6 +123,10 @@ button:active{
     margin-bottom: 0.4rem;
 }
 
+.table-element span{
+    width: 160px;
+}
+
 .width-restricted{
     max-width: 40rem;
 }

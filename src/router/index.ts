@@ -1,21 +1,17 @@
 import {createRouter, createWebHistory, RouteRecordRaw} from 'vue-router'
-import HomeView from '../views/HomeView.vue'
 import OnlineView from '../views/OnlineView.vue'
 import NotFoundView from '../views/NotFoundView.vue'
 import DetailsView from '../views/DetailsView.vue'
 import AboutView from "@/views/AboutView.vue";
 import JoinView from "@/views/JoinView.vue";
 import ModdedView from "@/views/ModdedView.vue";
+import ListView from '@/views/ListView.vue';
 
 const routes: Array<RouteRecordRaw> = [
     {
         path: '/',
         name: 'home',
-        component: HomeView,
-        meta: {
-            title: 'Home',
-            description: "Homepage of the Beocraft SMP minecraft server"
-        }
+        redirect: '/online'
     },
     {
         path: '/about',
@@ -24,6 +20,15 @@ const routes: Array<RouteRecordRaw> = [
         meta: {
             title: 'About',
             description: "Info about the Beocraft SMP minecraft server"
+        }
+    },
+    {
+        path: '/list',
+        name: 'list',
+        component: ListView,
+        meta: {
+            title: 'List',
+            description: "See the list of all the players on the Beocraft SMP"
         }
     },
     {
