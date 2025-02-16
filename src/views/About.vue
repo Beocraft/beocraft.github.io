@@ -4,8 +4,6 @@
         <main class="card width-restricted center">
             <p class="center">Here is a short list of server features:</p>
             <ul class="no-bullet">
-                <li v-if="status">Version: {{status.version.name}}</li>
-                <li v-if="status">Max slots: {{status.players.max}}</li>
                 <li>No cheating, No griefing, No stealing</li>
                 <li>ONLY paid clients (no crack)</li>
                 <li>ONLY java edition (no crossplay)</li>
@@ -26,13 +24,3 @@
         </p>
     </div>
 </template>
-
-<script setup lang="ts">
-import {CacheService} from "@/services/cache.service";
-import {ref} from "vue";
-import {StatusModel} from "@/models/status.model";
-
-const status = ref<StatusModel>();
-CacheService.retrieveStatus("play.beocraft.net")
-    .then(rsp => status.value = rsp.data)
-</script>

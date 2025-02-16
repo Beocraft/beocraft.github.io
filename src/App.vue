@@ -3,9 +3,7 @@
     <div class="border-black">
       <router-link to="/online">Online</router-link>
       |
-      <router-link to="/modded">Modded</router-link>
-      |
-      <router-link to="/list">Players</router-link>
+      <router-link to="/players">Players</router-link>
       |
       <a href="https://app.beocraft.net/" target="_blank">Stats</a>
       |

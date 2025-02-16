@@ -165,6 +165,10 @@ button:active{
     padding: 1rem;
 }
 
+.no-margin {
+    margin: 0px
+}
+
 @media(max-width: 70rem){
     .width-restricted{
         max-width: initial;

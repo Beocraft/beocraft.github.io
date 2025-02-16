@@ -1,58 +1,42 @@
-import {createRouter, createWebHistory, RouteRecordRaw} from 'vue-router'
-import OnlineView from '../views/OnlineView.vue'
-import NotFoundView from '../views/NotFoundView.vue'
-import DetailsView from '../views/DetailsView.vue'
-import AboutView from "@/views/AboutView.vue";
-import JoinView from "@/views/JoinView.vue";
-import ModdedView from "@/views/ModdedView.vue";
-import ListView from '@/views/ListView.vue';
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
+import About from '@/views/About.vue';
+import Players from '@/views/Players.vue';
+import Online from '@/views/Online.vue';
+import Join from '@/views/Join.vue';
+import Details from '@/views/Details.vue';
 
 const routes: Array<RouteRecordRaw> = [
     {
-        path: '/',
-        name: 'home',
-        redirect: '/online'
-    },
-    {
         path: '/about',
         name: 'about',
-        component: AboutView,
+        component: About,
         meta: {
             title: 'About',
-            description: "Info about the Beocraft SMP minecraft server"
+            description: "Info about the Beocraft SMP Minecraft server"
         }
     },
     {
-        path: '/list',
-        name: 'list',
-        component: ListView,
+        path: '/players',
+        name: 'players',
+        component: Players,
         meta: {
-            title: 'List',
+            title: 'Players',
             description: "See the list of all the players on the Beocraft SMP"
         }
     },
     {
         path: '/online',
         name: 'online',
-        component: OnlineView,
+        component: Online,
         meta: {
             title: 'Online',
             description: "How many people are online at the moment?"
         }
     },
     {
-        path: '/modded',
-        name: 'modded',
-        component: ModdedView,
-        meta: {
-            title: 'Modded',
-            description: "How many people are online at the moment?"
-        }
-    },
-    {
         path: '/join',
         name: 'join',
-        component: JoinView,
+        component: Join,
         meta: {
             title: 'Join',
             description: "How and where to join the Beocraft SMP"
@@ -61,19 +45,27 @@ const routes: Array<RouteRecordRaw> = [
     {
         path: '/details/:uuid',
         name: 'UserData',
-        component: DetailsView,
+        component: Details,
         meta: {
             title: 'Details',
             description: "Details about the player"
         }
     },
     {
-        path: '/status',
+        path: '/',
         redirect: '/online'
     },
     {
         path: '/home',
-        redirect: '/'
+        redirect: '/online'
+    },
+    {
+        path: '/status',
+        redirect: '/online'
+    },
+    {
+        path: '/list',
+        redirect: '/players'
     },
     {
         path: '/invite',
@@ -81,12 +73,7 @@ const routes: Array<RouteRecordRaw> = [
     },
     {
         path: '/:catchAll(.*)',
-        name: 'notfound',
-        component: NotFoundView,
-        meta: {
-            title: 'Not Found',
-            description: "This page does not exist"
-        }
+        redirect: '/online'
     }
 ]
 

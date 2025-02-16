@@ -1,10 +1,8 @@
 import axios from "axios"
-import {StatusModel} from "@/models/status.model";
-import {StatsModel} from "@/models/stats.model";
-import {DataModel} from "@/models/data.model";
+import { DataModel } from "@/models/data.model"
 
 const client = axios.create({
-    baseURL: 'https://api.beocraft.net',
+    baseURL: 'https://cache.samifying.com/api',
     headers: {
         'Accept': 'application/json'
     },
@@ -14,19 +12,7 @@ const client = axios.create({
 })
 
 export class CacheService {
-    static async retrieveAll() {
-        return await client.get<DataModel[]>('/data')
-    }
-
-    static async retrieveByUuid(uuid: string) {
+    static async retrieveByUUID(uuid: string) {
         return await client.get<DataModel>('/data/uuid/' + uuid)
-    }
-
-    static async retrieveStats() {
-        return await client.get<StatsModel>('/data/stats')
-    }
-
-    static async retrieveStatus(addr: string) {
-        return client.get<StatusModel>('/status/' + addr)
     }
 }
