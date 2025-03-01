@@ -5,9 +5,7 @@
       |
       <router-link to="/players">Players</router-link>
       |
-      <a href="https://app.beocraft.net/" target="_blank">Stats</a>
-      |
-      <router-link to="/about">About</router-link>
+      <router-link to="/about">About Us</router-link>
       |
       <router-link to="/join">Join Now</router-link>
     </div>

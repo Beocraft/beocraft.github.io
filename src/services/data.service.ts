@@ -19,7 +19,7 @@ export class DataService {
     }
 
     static async getDiscordMember(uuid: string) {
-        return await client.get<MemberModel>('/user?uuid=' + uuid)
+        return await client.get<MemberModel>('/user/' + uuid)
     }
 
     static async getPlayersList() {

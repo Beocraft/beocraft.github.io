@@ -1,6 +1,7 @@
 <template>
     <div class="about">
         <h3>Beocraft - The Vanilla SMP</h3>
+        <p>Providing the original Minecraft experience since 2017</p>
         <main class="card width-restricted center">
             <p class="center">Here is a short list of server features:</p>
             <ul class="no-bullet">
@@ -16,7 +17,7 @@
                 <li>No creaper, ghast and enderman grief</li>
                 <li>Bats drop membranes</li>
                 <li>Hosted 24/7 in Europe</li>
-                <li>Discord based authentication and webhooks</li>
+                <li>Discord based authentication and chat integration</li>
             </ul>
         </main>
         <p>
