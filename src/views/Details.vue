@@ -45,7 +45,7 @@
           <tr>
             <th>Statistics</th>
             <td>
-              <a :href="`https://plan.beocraft.net/player/${data.uuid}/overview`" target="_blank">Click Here</a>
+              <a :href="`https://plan.beocraft.net/player/${uuid}/overview`" target="_blank">Click Here</a>
             </td>
           </tr>
         </tbody>
