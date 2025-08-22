@@ -5,6 +5,8 @@
       |
       <router-link to="/players">Players</router-link>
       |
+      <a href="https://map.beocraft.net" target="_blank">Map</a>
+      |
       <router-link to="/about">About Us</router-link>
       |
       <router-link to="/join">Join Now</router-link>

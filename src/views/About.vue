@@ -17,6 +17,7 @@
                 <li>No creaper, ghast and enderman grief</li>
                 <li>Bats drop membranes</li>
                 <li>Hosted 24/7 in Europe</li>
+                <li>Running on <a href="https://fabricmc.net/" target="_blank">Fabric</a></li>
                 <li>Discord based authentication and chat integration</li>
             </ul>
         </main>

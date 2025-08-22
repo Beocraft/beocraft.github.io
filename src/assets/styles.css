@@ -184,3 +184,7 @@ button:active{
         display: none;
     }
 }
+
+article {
+    cursor: pointer;
+}

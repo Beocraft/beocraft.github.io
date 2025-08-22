@@ -45,7 +45,7 @@
           <tr>
             <th>Statistics</th>
             <td>
-              <a :href="`https://plan.beocraft.net/player/${uuid}/overview`" target="_blank">Click Here</a>
+              <a :href="`https://plan.beocraft.net/player/${addDashesToUUID(uuid)}/overview`" target="_blank">Click Here</a>
             </td>
           </tr>
         </tbody>
@@ -62,13 +62,14 @@ import DateFormat from "@/components/DateFormat.vue";
 import { CacheService } from '@/services/cache.service';
 import { DataModel } from '@/models/data.model';
 import ErrorDisplay from '@/components/ErrorDisplay.vue';
+import { addDashesToUUID } from '@/utils';
 
 const route = useRoute()
 const uuid = String(route.params.uuid)
 
 const data = ref<DataModel>()
 const error = ref<string>()
-CacheService.retrieveByUUID(uuid)
+CacheService.getDataByUUID(uuid)
   .then(rsp => data.value = rsp.data)
   .catch(e => error.value = e.message)
 </script>
