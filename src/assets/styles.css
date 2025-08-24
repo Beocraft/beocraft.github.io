@@ -188,3 +188,7 @@ button:active{
 article {
     cursor: pointer;
 }
+
+.namemc {
+    margin-top: 1rem;
+}
